@@ -1,0 +1,167 @@
+ 
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+.header {
+    background-color: #111;
+    padding: 10px 2%; 
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2%; 
+    background-color: #1E1E1E;
+}
+
+.boton-iniciar-sesion {
+    background-color: #535353;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.boton-registrar {
+    background-color: #a35252;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.logo {
+    order: 0;
+    margin-right: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav {
+    order: 1;
+}
+
+nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #A9A9A9;
+}
+
+.section {
+    max-width: 1000px;
+    margin: 50px auto;
+    text-align: center;
+    color: #fff;
+}
+
+.about-us {
+    background-color: #2a2a2a;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.about-us h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-us p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.office-photos {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.office-photo {
+    width: 250px;
+    height: 150px;
+    background-size: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons {
+    margin-top: 30px;
+}
+
+.social-icons a {
+    color: #4caf50;
+    margin: 0 15px;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #45a049;
+}
+
+.values,
+.team,
+.awards,
+.clients,
+.partners,
+.philosophy,
+.projects,
+.testimonials,
+.resources {
+    text-align: left;
+    margin-top: 50px;
+}
+
+.values h3,
+.team h3,
+.awards h3,
+.clients h3,
+.partners h3,
+.philosophy h3,
+.projects h3,
+.testimonials h3,
+.resources h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #4caf50;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.list-item {
+    font-size: 18px;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.list-item::before {
+    content: '\2022';
+    color: #4caf50;
+    position: absolute;
+    left: 0;
+}

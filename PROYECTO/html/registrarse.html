@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..//estilos/Registro.css">
+    <title>Registrarse - EduCecar</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://i.postimg.cc/YSdFCjFz/LOGO.png" alt="EduCecar" width="20%">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Inicio.html">Inicio</a></li>
+                <li><a href="Iniciodesesion.html" class="boton-iniciar-sesion">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h2 class="titulo">Registro</h2>
+    <section>
+        <form id="signupForm">
+            <label>Nombres</label>
+            <input type="text" placeholder="..." id="first_name" required>
+            
+            <label>Apellidos</label>
+            <input type="text" placeholder="..." id="last_name" required>
+            
+            <label>Tipo de identificación</label>
+            <select id="id_type" required>
+                <option value="CC">Cédula de Ciudadanía (CC)</option>
+                <option value="TI">Tarjeta de Identidad (TI)</option>
+                <option value="CE">Cédula de Extranjería (CE)</option>
+                <option value="P">Pasaporte</option>
+            </select>
+            
+            <label>Número de identificación</label>
+            <input type="text" placeholder="..." id="id_number" required>
+            
+            <label>Dirección de residencia</label>
+            <input type="text" placeholder="Formato: barrio, calle, Carrera, numero" id="address" required>
+           
+            <label>Fecha de Nacimiento</label>
+            <input type="date" id="birthdate" required>
+            
+            <label>Estudios realizados</label>
+            <input type="text" placeholder="..." id="education" required>
+            
+            <label>Tipo</label>
+            <select id="user_type" required>
+                <option value="Admin">Administrador</option>
+                <option value="Student">Estudiante</option>
+                <option value="Instructor">Instructor</option>
+            </select>
+            
+            <label>Correo Electrónico</label>
+            <input type="email" placeholder="..." id="email" required>
+            
+            <label>Usuario</label>
+            <input type="text" placeholder="..." id="username" required>
+           
+            <label>Contraseña</label>
+            <input type="password" placeholder="..." id="password" required>
+            <input type="submit" value="Registro">
+        </form>
+        <p>¿Ya tienes una cuenta? <a href="Iniciodesesion.html">Iniciar Sesión</a></p>
+    </section>
+
+    <div class="image-container">
+        <img class="image-container" src="https://i.postimg.cc/L5jkSW-6z/Dise-o-sin-t-tulo-removebg-preview.png" alt="image-container">
+    </div>
+    <script src="../Js/signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Evaluación - Instructor</title>
+    <link rel="stylesheet" href="../estilos/PanelInstructor.css">
+    <link rel="stylesheet" href="../estilos/CrearEvaluacion.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Panel de Control - Instructor</h1>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="../html/PanelInstructor.html">Inicio</a></li>
+                <li><a href="../html/cursosInstructor.html">Mis Cursos</a></li>
+                <li><a href="../html/EvaluacionIntructor.html">Crear Evaluación</a></li>
+                <li><a href="../html/ConfiguracionInstructor.html">Configuración</a></li>
+                <li><a href="../html/InicioDeSesion.html">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Crear Nueva Evaluación</h2>
+            <form id="formularioEvaluacion">
+                <label for="nombreEvaluacion">Nombre de la Evaluación:</label>
+                <input type="text" id="nombreEvaluacion" required>
+
+                <label for="nombreEvaluacion">Cursos Asociados:</label>
+                <input type="text" id="nombreEvaluacion" required>
+
+                <label for="nombreEvaluacion">Tema Asociado:</label>
+                <input type="text" id="nombreEvaluacion" required>
+
+                <label for="descripcionEvaluacion">Descripción:</label>
+                <textarea id="descripcionEvaluacion" required></textarea>
+
+                <label for="fechaEvaluacion">Fecha de la Evaluación:</label>
+                <input type="date" id="fechaEvaluacion" required>
+
+                <label for="enlaceEvaluacion">Enlace de Evaluación (URL):</label>
+                <input type="url" id="enlaceEvaluacion" required>
+
+                <button type="button" onclick="crearEvaluacion()">Crear Evaluación</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

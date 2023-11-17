@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion Usuarios - EduCecar</title>
+    <link rel="stylesheet" href="../estilos/PanelAdministrador.css">
+    <script src="../Js/gestionUsuario.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Panel de Administrador - EduCecar</h1>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="../html/PanelAdministrador.html">Inicio</a></li>
+                <li><a href="../html/gestionTemas.html">Gestión de Temas</a></li>
+                <li><a href="../html/gestionCursos.html">Gestión de Cursos</a></li>
+                <li><a href="../html/gestionMatricula.html">Gestión de Matrícula</a></li>
+                <li><a href="../html/gestionUsuarios.html">Gestión de Usuarios</a></li>
+                <li class="active"><a href="../html/Reportesfinancieros.html">Reportes financieros</a></li>
+                <li><a href="../html/configuracionAdministrador.html">Configuración</a></li>
+                <li><a href="../html/InicioDeSesion.html">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+
+
+
+        <div class="content">
+            <h2>Gestion de usuarios</h2>
+
+            <label for="">Numero de documento a buscar:</label>
+            <input type="text" id="buscar"><br><br>
+
+            <h3>DATOS DEL USUARIO:</h3><br><br>
+
+            <form action="javascript:void(0);" method="post">
+
+                <label for="nombre">Nombres:</label>
+                <input type="text" id="nombre" name="nombre" value="###" readonly><br>
+
+                <label for="nombre">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" value="###" readonly><br>
+
+                <label for="id_type">Tipo de identificación</label>
+                <select id="id_type" required>
+                    <option value="CC">Cédula de Ciudadanía (CC)</option>
+                    <option value="TI">Tarjeta de Identidad (TI)</option>
+                    <option value="CE">Cédula de Extranjería (CE)</option>
+                    <option value="P">Pasaporte</option>
+                </select><br>
+
+                <label for="cedula">Numero de identificacion:</label>
+                <input type="text" id="cedula" name="cedula" value="###" readonly><br>
+
+                <label for="direccionResidencia">Dirección de Residencia:</label>
+                <input type="text" id="direccionResidencia" value="###" readonly><br>
+
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" readonly><br>
+
+                <label for="estudiosRealizados">Estudios Realizados:</label>
+                <input type="text" id="estudiosRealizados" value="###" readonly><br>
+
+                <label>Tipo</label>
+                <select id="user_type" required>
+                    <option value="Admin">Administrador</option>
+                    <option value="Student">Estudiante</option>
+                    <option value="Instructor">Instructor</option>
+                </select><br>
+
+                <label for="email">Correo Electrónico</label>
+                <input type="email" placeholder="..." id="email" required><br>
+
+                <label for="usuario">usuario:</label>
+                <input type="text" id="usuario" name="usuario" value="###" readonly><br>
+
+                <label for="contrasena">Contraseña:</label>
+                <div style="position: relative;">
+                    <input type="password" id="contrasena" name="contrasena" value="###" readonly>
+                    <i class="fas fa-eye eye-icon" id="eyeIcon" onclick="mostrarContraseña()"></i>
+                </div><br>
+
+                <button onclick="consultar()">Consultar</button>
+                <button type="button" class="dark-btn" onclick="actualizarDatos()">Guardar Cambios</button>
+
+            
+            </form>
+        </div>
+</body>
+
+</html>

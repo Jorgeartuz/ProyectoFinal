@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #292929;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2%; 
+    background-color: #1E1E1E;
+}
+
+.header {
+    background-color: #111;
+    padding: 10px 2%; 
+    text-align: center;
+}
+
+.boton-iniciar-sesion {
+    background-color: #535353;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.boton-registrar {
+    background-color: #a35252;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.logo {
+    order: 0;
+    margin-right: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav {
+    order: 1;
+}
+
+nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #A9A9A9;
+}
+
+
+.opiniones {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 2rem;
+}
+
+.opinion {
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem;
+    text-align: center;
+    width: 300px;
+}
+
+.opinion img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.opinion h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.opinion p {
+    font-style: italic;
+    font-size: 1rem;
+}

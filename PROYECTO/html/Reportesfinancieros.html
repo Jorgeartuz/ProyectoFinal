@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - Administrador</title>
+    <link rel="stylesheet" href="../estilos/panelAdministrador.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Panel de Control - Administrador</h1>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="../html/PanelAdministrador.html">Inicio</a></li>
+                <li><a href="../html/gestionTemas.html">Gestión de Temas</a></li>
+                <li><a href="../html/gestionCursos.html">Gestión de Cursos</a></li>
+                <li><a href="../html/gestionMatricula.html">Gestión de Matrícula</a></li>
+                <li><a href="../html/gestionUsuarios.html">Gestión de Usuarios</a></li>
+                <li class="active"><a href="../html/Reportesfinancieros.html">Reportes financieros</a></li>
+                <li><a href="../html/configuracionAdministrador.html">Configuración</a></li>
+                <li><a href="../html/InicioDeSesion.html">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Reportes Financieros</h2>
+
+            <!-- Contenido del reporte de ingresos -->
+<section id="reporteIngresos">
+    <h3>Reporte de Ingresos</h3>
+    <p>Este reporte muestra los ingresos totales del mes. Incluye información detallada sobre las transacciones realizadas, como inscripciones a cursos, ventas de materiales, etc.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Descripción</th>
+                <th>Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2023-11-01</td>
+                <td>Inscripción Curso A</td>
+                <td>$150.00</td>
+            </tr>
+            <tr>
+                <td>2023-11-05</td>
+                <td>Venta Material B</td>
+                <td>$30.00</td>
+            </tr>
+            <!-- Agrega más filas según sea necesario -->
+        </tbody>
+    </table>
+    <a href="#" class="action-btn">Descargar</a>
+    <a href="#" class="action-btn">Imprimir</a>
+    <a href="#" class="action-btn">Añadir</a>
+    <a href="#" class="action-btn">Actualizar</a>
+</section>
+
+<br>
+<br>
+
+<!-- Contenido de los pagos de estudiantes -->
+<section id="pagosEstudiantes">
+    <h3>Pagos de Estudiantes</h3>
+    <p>En este informe, encontrarás detalles sobre los pagos realizados por los estudiantes durante el periodo actual. Incluye información sobre las fechas de pago, estudiantes y montos.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha de Pago</th>
+                <th>Estudiante</th>
+                <th>Monto Pagado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2023-11-03</td>
+                <td>Juan Pérez</td>
+                <td>$50.00</td>
+            </tr>
+            <tr>
+                <td>2023-11-10</td>
+                <td>Maria Gómez</td>
+                <td>$75.00</td>
+            </tr>
+            <!-- Agrega más filas según sea necesario -->
+        </tbody>
+    </table>
+    <a href="#" class="action-btn">Descargar</a>
+    <a href="#" class="action-btn">Imprimir</a>
+    <a href="#" class="action-btn">Añadir</a>
+    <a href="#" class="action-btn">Actualizar</a>
+</section>
+
+<br>
+<br>
+
+<!-- Contenido de los ingresos por venta de cursos -->
+<section id="ingresosCursos">
+    <h3>Ingresos por Venta de Cursos</h3>
+    <p>Visualiza los ingresos generados por la venta de cursos. Incluye estadísticas y desglose por cada curso ofrecido.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Ingresos</th>
+                <th>Estudiantes Inscritos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Curso A</td>
+                <td>$500.00</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>Curso B</td>
+                <td>$350.00</td>
+                <td>10</td>
+            </tr>
+            <!-- Agrega más filas según sea necesario -->
+        </tbody>
+    </table>
+    <a href="#" class="action-btn">Descargar</a>
+    <a href="#" class="action-btn">Imprimir</a>
+    <a href="#" class="action-btn">Añadir</a>
+    <a href="#" class="action-btn">Actualizar</a>
+</section>
+
+<br>
+<br>
+        </div>
+    </div>
+</body>
+
+<script src="../Js/reportesFinancieros.js"></script>
+
+</html>

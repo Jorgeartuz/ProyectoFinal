@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCECAR</title>
+    <link rel="stylesheet" href="..//estilos/Inicio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
+    <script src="../Js/inicio.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://i.postimg.cc/YSdFCjFz/LOGO.png" alt="EduCecar" width="20%">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="cursos.html">Cursos</a></li>
+                <li><a href="precios.html">Precios</a></li>
+                <li><a href="opiniones.html">Opiniones</a></li>
+                <li><a href="quienesomos.html">Quiénes somos</a></li>
+                <li><a href="Iniciodesesion.html" class="boton-iniciar-sesion">Iniciar Sesión</a></li>
+                <li><a href="registrarse.html" class="boton-registrar">Registrar</a></li>
+                
+            </ul>
+        </nav>
+        <div class="iconos">
+            
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Explora, aprende y crece <br>
+                con nosotros.</h1>
+            <p>Descubre cursos emocionantes, conoce expertos apasionados <br>
+                y transforma tus conocimientos. </p>
+            <button>INSCRÍBETE AQUÍ</button>
+        </div>
+        <div class="hero-image">
+            <img src="https://i.postimg.cc/MK1CdcZq/VN-Como-crear-el-mejor-temario-de-tu-curso-online-Incluye-plantillas.png"
+                alt="Descripción de la imagen">
+        </div>
+    </section>
+
+    <h2 class="titloinstructor">Instructores de nuestra facultad</h2>
+    <section class="instructors">
+        <div class="instructor-card">
+            <img src="https://i.postimg.cc/YC49yfPT/Perfil-hombre-ba-sico-738242395.jpg" alt="Instructor 1">
+            <div class="instructor-info">
+                <h2>Lic. Alejandro Torres</h2>
+                <p>Profesional en Ciencias de la Computación, más de 10 años en <strong>investigación y desarrollo de
+                        software.</strong>___</p>
+            </div>
+        </div>
+        <div class="instructor-card">
+            <img src="https://i.postimg.cc/j2pq7C6C/perfil-hombre-vivo.png" alt="Instructor 2">
+            <div class="instructor-info">
+                <h2>Ing. Carlos Vargas</h2>
+                <p>Profesional en Ingeniería Eléctrica, ha trabajado en proyectos de <strong>energía renovable y
+                        sostenibilidad.</strong></p>
+            </div>
+        </div>
+        <div class="instructor-card">
+            <img src="https://i.postimg.cc/x1d4tpQf/IMG-1910-fullsize.jpg" alt="Instructor 3">
+            <div class="instructor-info">
+                <h2>Prof. Ana Morales</h2>
+                <p>Profesional en Idiomas Extranjeros, amplia trayectoria en la enseñanza de <strong>idiomas y cultura
+                        extranjera.</strong></p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="noticias">
+        <div class="titulo-seccion">
+            <h1>Noticias</h1>
+        </div>
+        <div class="noticias-container">
+            <div class="noticia-principal">
+                <img src="https://i.postimg.cc/tTV3TWjG/tendencias-educacion-y-tecnologia.jpg" alt="Noticia Principal">
+                <a class="titulonoticia" href="#">
+                    <h1 class="titulonoticia">Lo que deben aprender los estudiantes para enfrentar el futuro.</h1>
+                </a>
+                <p class="textonoticia">En marzo se completará un año de estudio en casa en el que un aliado clave ha
+                    sido la tecnología... <span class="seg">Segir viendo.</span></p>
+            </div>
+
+            <div class="noticias-pequenas">
+                <div class="slider">
+                    <div class="noticia-miniatura">
+                        <img src="https://i.postimg.cc/nzLKtgdr/49-EL-DOCENTE-Y-LA-TECNOLOGI-A-255x143.jpg"
+                            alt="Noticia Miniatura 1">
+                        <h1 class="titulonoticia1">Formación de docentes, la transformación digital de la educación.
+                        </h1>
+                    </div>
+                    <div class="noticia-miniatura">
+                        <img src="https://i.postimg.cc/YCkXhp8y/IMG-DESARROLLO-WEB-255-X143.png"
+                            alt="Noticia Miniatura 2">
+                        <h1 class="titulonoticia1">Construcción social desde la tecnología y la educación digital</h1>
+                    </div>
+                </div>
+                <button class="slider-btn prev">Anterior</button>
+                <button class="slider-btn next">Siguiente</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="eventos">
+        <div id="calendario" class="calendario"></div>
+
+        <div class="lista-eventos">
+            <h2>Próximos Eventos</h2>
+            <br>
+            <ul>
+                <a class="enlaces" href="#">
+                    <li>Evento 1 - 15 Noviembre 2023</li>
+                </a>
+                <a class="enlaces" href="#">
+                    <li>Evento 2 - 20 Noviembre 2023</li>
+                </a>
+                <a class="enlaces" href="#">
+                    <li>Evento 3 - 23 Diciembre 2023</li>
+                </a>
+
+            </ul>
+        </div>
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://i.postimg.cc/YSdFCjFz/LOGO.png" alt="EduCecar">
+            </div>
+            <div class="contact-info">
+                <h3>Contacto</h3>
+                <p>Dirección: Calle 26a #31-3 | Email: EduCecar@email.com | Teléfono: 12939443</p>
+            </div>
+            <div class="social-icons">
+                <h3>Síguenos</h3>
+                <ul>
+                    <li><a href="#" class="fab fa-facebook"></a></li>
+                    <li><a href="#" class="fab fa-twitter"></a></li>
+                    <li><a href="#" class="fab fa-instagram"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

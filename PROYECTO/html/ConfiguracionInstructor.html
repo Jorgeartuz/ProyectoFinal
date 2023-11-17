@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCecar - Configuración Instructor</title>
+    <link rel="stylesheet" href="../estilos/PanelInstructor.css">
+    <link rel="stylesheet" href="../estilos/configuracion.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="../Js/configuracion.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Panel de Control - Instructor</h1>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="../html/PanelInstructor.html">Inicio</a></li>
+                <li><a href="..//html/cursosInstructor.html">Mis Cursos</a></li>
+                <li><a href="../html/EvaluacionIntructor.html">Crear Evaluación</a></li>
+                <li><a href="#">Configuración</a></li>
+                <li><a href="../html/InicioDeSesion.html">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Configuración</h2>
+
+            <form action="javascript:void(0);" method="post">
+                <label for="cedula">Cédula:</label>
+                <input type="text" id="cedula" name="cedula" value="" readonly>
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" value="" readonly>
+
+                <label for="usuario">Nombre de usuario:</label>
+                <input type="text" id="usuario" name="usuario" value="" readonly>
+
+                <label for="direccionResidencia">Dirección de Residencia:</label>
+                <input type="text" id="direccionResidencia" value="" readonly>
+
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" readonly>
+
+                <label for="estudiosRealizados">Estudios Realizados:</label>
+                <input type="text" id="estudiosRealizados" value="" readonly>
+
+                <label for="contrasena">Contraseña Actual:</label>
+                <div style="position: relative;">
+                    <input type="password" id="contrasena" name="contrasena" value="" readonly>
+                    <i class="fas fa-eye eye-icon" id="eyeIcon" onclick="mostrarContraseña()"></i>
+                </div>
+
+                <button type="button" class="dark-btn" onclick="habilitarEdicion()" id="btnModificar">Modificar</button>
+                <button type="submit" class="dark-btn" onclick="actualizarDatos()" id="btnActualizar" disabled>Actualizar</button>
+                <button type="button" class="dark-btn delete-section" onclick="eliminarCuenta()">Eliminar Cuenta</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
