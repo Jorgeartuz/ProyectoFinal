@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Cursos - Administrador</title>
     <link rel="stylesheet" href="..//estilos/PanelInstructor.css">
+    <script src="../Js/gestionCursos.js"></script>
 </head>
-
 <body>
     <div class="header">
         <h1>Panel de Control - Administrador</h1>
@@ -19,6 +19,7 @@
                 <li><a href="../html/PanelAdministrador.html">Inicio</a></li>
                 <li><a href="../html/gestionTemas.html">Gestión de Temas</a></li>
                 <li><a href="../html/gestionCursos.html">Gestión de Cursos</a></li>
+                <li><a href="../html/gestionVideos.html">Gestión de Videos</a></li>
                 <li><a href="../html/gestionMatricula.html">Gestión de Matrícula</a></li>
                 <li><a href="../html/gestionUsuarios.html">Gestión de Usuarios</a></li>
                 <li class="active"><a href="../html/Reportesfinancieros.html">Reportes financieros</a></li>
@@ -28,6 +29,10 @@
         </div>
 
         <div class="content">
+            <header>
+                <h2>Gestión de Cursos</h2>
+            </header>
+
             <section id="cursos">
                 <h2>Lista de Cursos</h2>
                 <!-- Aquí se mostrará la lista de cursos existentes -->
@@ -39,62 +44,20 @@
                     <label for="codigoCurso">Código:</label>
                     <input type="number" id="codigoCurso" required>
 
-                    <label for="InstructorCurso">Instructores asociados:</label>
-                    <input type="search" id="InstructorCurso" required>
-
                     <label for="nombreCurso">Nombre:</label>
                     <input type="text" id="nombreCurso" required>
 
                     <label for="videosCurso">Videos asociados (codigo):</label>
-                    <input type="text" id="videosCurso" required>
-
-                    <label for="tematicasAsociadas">Temáticas asociadas:</label>
-                    <select id="tematicasAsociadas" multiple>
-                        <!-- Opciones de temáticas se cargarán dinámicamente con JavaScript -->
+                    <select id="videosCurso" multiple>
+                        <!-- Opciones de videos se cargarán dinámicamente del localStorage videos -->
                     </select>
 
                     <button type="button" onclick="agregarCurso()">Agregar Curso</button>
                 </form>
             </section>
-
-            <section id="videos">
-                <h2>Lista de Videos</h2>
-                <!-- Aquí se mostrará la lista de videos existentes -->
-            </section>
-
-            <section id="formularioVideo">
-                <h2>Agregar Nuevo Video</h2>
-                <form id="formVideo">
-                    <label for="codigoVideo">Código:</label>
-                    <input type="text" id="codigoVideo" required>
-
-                    <label for="CursoVideo">Curso asociado:</label>
-                    <input type="search" id="CursoVideo" required>
-
-                    <label for="nombreVideo">Nombre:</label>
-                    <input type="text" id="nombreVideo" required>
-
-                    <label for="urlVideo">URL:</label>
-                    <input type="url" id="urlVideo" required>
-
-                    <label for="idiomaOriginal">Idioma original:</label>
-                    <input type="text" id="idiomaOriginal" required>
-
-                    <label for="idiomasDisponibles">Idiomas disponibles:</label>
-                    <input type="text" id="idiomasDisponibles" required>
-
-                    <label for="subtitulosDisponibles">Subtítulos disponibles:</label>
-                    <input type="text" id="subtitulosDisponibles" required>
-
-                    <label for="duracionVideo">Duración (HH:MM:SS):</label>
-                    <input type="text" id="duracionVideo" required>
-
-                    <button type="button" onclick="agregarVideo()">Agregar Video</button>
-                </form>
-            </section>
-    </div>
+        </div>
 </body>
 
-<script src="../Js/gestionCursos.js"></script>
+
 
 </html>

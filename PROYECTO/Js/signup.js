@@ -1,20 +1,3 @@
-// Validar formato de correo electrónico
-const isValidEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-};
-
-// Validar seguridad de la contraseña
-const isSecurePassword = (password) => {
-    // Agrega tus criterios de seguridad aquí (longitud mínima, caracteres especiales, etc.)
-    return password.length >= 8;
-};
-
-// Función para generar un identificador único
-const generateUniqueId = () => {
-    return 'user_' + Math.random().toString(36).substr(2, 9);
-};
-
 const signupForm = document.querySelector('#signupForm');
 
 signupForm.addEventListener('submit', (e) => {
@@ -28,24 +11,13 @@ signupForm.addEventListener('submit', (e) => {
     const address = document.querySelector('#address').value;
     const birthdate = document.querySelector('#birthdate').value;
     const education = document.querySelector('#education').value;
-    const user_type = document.querySelector('#user_type').value;
     const email = document.querySelector('#email').value;
     const username = document.querySelector('#username').value;
     const password = document.querySelector('#password').value;
 
     // Validar campos no vacíos
-    if (!first_name || !last_name || !id_type || !id_number || !address || !birthdate || !education || !user_type || !email || !username || !password) {
+    if (!first_name || !last_name || !id_type || !id_number || !address || !birthdate || !education || !email || !username || !password) {
         return alert('Por favor, completa todos los campos.');
-    }
-
-    // Validar formato de correo electrónico
-    if (!isValidEmail(email)) {
-        return alert('Por favor, introduce un correo electrónico válido.');
-    }
-
-    // Validar seguridad de la contraseña
-    if (!isSecurePassword(password)) {
-        return alert('La contraseña debe tener al menos 8 caracteres.');
     }
 
     // Obtener usuarios del localStorage o inicializar un array vacío
@@ -58,10 +30,11 @@ signupForm.addEventListener('submit', (e) => {
         return alert('El usuario ya está registrado.');
     }
 
+    const user_type = 'Student';
+
+
     // Agregar nuevo usuario al array y guardar en localStorage
-    const userId = generateUniqueId();
     users.push({
-        id: userId,
         first_name,
         last_name,
         id_type,

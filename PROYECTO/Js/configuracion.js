@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (btnActualizar) {
         btnActualizar.addEventListener('click', function () {
             if (actualizarDatos()) {
-                cargarDatosUsuario();
+                cargarDatosUsuario(); // Llamar a cargarDatosUsuario solo si la actualización fue exitosa
             }
         });
     }
@@ -17,13 +17,13 @@ function cargarDatosUsuario() {
     console.log('Datos del usuario al cargar la página:', loggedInUserData);
 
     if (loggedInUserData) {
-        document.getElementById('cedula').value = loggedInUserData.id_number || '';
-        document.getElementById('nombre').value = `${loggedInUserData.first_name} ${loggedInUserData.last_name}` || '';
-        document.getElementById('usuario').value = loggedInUserData.username || '';
-        document.getElementById('direccionResidencia').value = loggedInUserData.address || '';
-        document.getElementById('fechaNacimiento').value = loggedInUserData.birthdate || '';
-        document.getElementById('estudiosRealizados').value = loggedInUserData.education || '';
-        document.getElementById('contrasena').value = loggedInUserData.password || '';
+        document.getElementById('cedula').value = loggedInUserData.id_number;
+        document.getElementById('nombre').value = `${loggedInUserData.first_name} ${loggedInUserData.last_name}`;
+        document.getElementById('usuario').value = loggedInUserData.username;
+        document.getElementById('direccionResidencia').value = loggedInUserData.address;
+        document.getElementById('fechaNacimiento').value = loggedInUserData.birthdate;
+        document.getElementById('estudiosRealizados').value = loggedInUserData.education;
+        document.getElementById('contrasena').value = loggedInUserData.password;
 
         // Mostrar campos adicionales según el tipo de usuario
         switch (localStorage.getItem('logged_in_user_type')) {
@@ -49,7 +49,7 @@ function habilitarEdicion() {
     elementos.forEach(function (elementoId) {
         var elemento = document.getElementById(elementoId);
         if (elemento) {
-            elemento.removeAttribute('readonly');
+            elemento.readOnly = false;
         }
     });
 
@@ -77,7 +77,7 @@ function actualizarDatos() {
     var first_name = nombres[0];
     var last_name = nombres.slice(1).join(' ');
 
-    var userData = JSON.parse(localStorage.getItem('logged_in_user_data')) || {};
+    var userData = JSON.parse(localStorage.getItem('logged_in_user_data'));
 
     userData.id_number = cedula;
     userData.first_name = first_name;
@@ -89,7 +89,7 @@ function actualizarDatos() {
     userData.password = contrasena;
 
     localStorage.setItem('logged_in_user_data', JSON.stringify(userData));
-
+    
     // Actualizar también el nombre en el localStorage para que se refleje al iniciar sesión
     localStorage.setItem('logged_in_user_name', `${first_name} ${last_name}`);
 
@@ -106,7 +106,7 @@ function deshabilitarEdicion() {
     elementos.forEach(function (elementoId) {
         var elemento = document.getElementById(elementoId);
         if (elemento) {
-            elemento.setAttribute('readonly', 'readonly');
+            elemento.readOnly = true;
         }
     });
 
@@ -114,7 +114,6 @@ function deshabilitarEdicion() {
     if (btnActualizar) {
         btnActualizar.innerHTML = 'Modificar';
         btnActualizar.disabled = false;
-        btnActualizar.removeEventListener('click', deshabilitarEdicion);
         btnActualizar.addEventListener('click', habilitarEdicion);
     }
 }

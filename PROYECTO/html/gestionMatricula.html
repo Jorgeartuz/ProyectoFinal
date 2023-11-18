@@ -8,7 +8,6 @@
     <script src="../Js/gestionMatriculas.js"></script>
     <link rel="stylesheet" href="../estilos/PanelAdministrador.css">
 </head>
-
 <body>
     <div class="header">
         <h1>Panel de Administrador - EduCecar</h1>
@@ -20,6 +19,7 @@
                 <li><a href="../html/PanelAdministrador.html">Inicio</a></li>
                 <li><a href="../html/gestionTemas.html">Gestión de Temas</a></li>
                 <li><a href="../html/gestionCursos.html">Gestión de Cursos</a></li>
+                <li><a href="../html/gestionVideos.html">Gestión de Videos</a></li>
                 <li><a href="../html/gestionMatricula.html">Gestión de Matrícula</a></li>
                 <li><a href="../html/gestionUsuarios.html">Gestión de Usuarios</a></li>
                 <li class="active"><a href="../html/Reportesfinancieros.html">Reportes financieros</a></li>
@@ -32,20 +32,8 @@
             <h2>Gestión de Matrícula</h2>
 
             <section id="matriculas">
-                <h3>Matrículas Registradas</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Fecha de Matrícula</th>
-                            <th>Tema</th>
-                            <th>Estudiante</th>
-                            <th>Valor de Matrícula</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaMatriculas">
-                        <!-- Aquí se mostrarán las filas de la tabla dinámicamente con JavaScript -->
-                    </tbody>
-                </table>
+                <h2>Lista de matriculas</h2>
+                <!-- Aquí se mostrará la lista de matriculas existentes -->
             </section>
 
             <section id="formularioMatricula">
@@ -56,12 +44,12 @@
 
                     <label for="temasDisponibles">Selecciona un Tema:</label>
                     <select id="temasDisponibles" required>
-                        <!-- Opciones de temas se cargarán dinámicamente con JavaScript -->
+                        <!-- Opciones de temas se cargarán dinámicamente del localStorage -->
                     </select>
 
                     <label for="estudiantesDisponibles">Selecciona un Estudiante:</label>
                     <select id="estudiantesDisponibles" required>
-                        <!-- Opciones de estudiantes se cargarán dinámicamente con JavaScript -->
+                        <!-- Opciones de estudiantes se cargarán dinámicamente del localStorage -->
                     </select>
 
                     <label for="valorMatricula">Valor de Matrícula:</label>

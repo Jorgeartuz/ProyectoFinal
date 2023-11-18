@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduCECAR - Gestión de Temas</title>
     <script src="../Js/temas.js"></script>
-   
     <link rel="stylesheet" href="../estilos/PanelAdministrador.css">
+    <script src="../Js/gestionTemas.js"></script>
 </head>
 
 <body>
@@ -20,13 +20,13 @@
                 <li><a href="../html/PanelAdministrador.html">Inicio</a></li>
                 <li><a href="../html/gestionTemas.html">Gestión de Temas</a></li>
                 <li><a href="../html/gestionCursos.html">Gestión de Cursos</a></li>
+                <li><a href="../html/gestionVideos.html">Gestión de Videos</a></li>
                 <li><a href="../html/gestionMatricula.html">Gestión de Matrícula</a></li>
                 <li><a href="../html/gestionUsuarios.html">Gestión de Usuarios</a></li>
                 <li class="active"><a href="../html/Reportesfinancieros.html">Reportes financieros</a></li>
                 <li><a href="../html/configuracionAdministrador.html">Configuración</a></li>
                 <li><a href="../html/InicioDeSesion.html">Cerrar Sesión</a></li>
             </ul>
-        
         </div>
 
         <div class="content">
@@ -51,6 +51,11 @@
                     <label for="descripcion">Descripción:</label>
                     <textarea id="descripcion" required></textarea>
 
+                    <label for="cursosAsociados">Cursos asociados (codigo):</label>
+                    <select id="cursosAsociados" multiple>
+                        <!-- Opciones de cursos se cargarán dinámicamente del localStorage cursos, se pueden escoger 1 o mas cursos -->
+                    </select>
+
                     <label for="costo">Costo:</label>
                     <input type="number" id="costo" required>
 
@@ -63,6 +68,8 @@
 
         </div>
     </div>
+
+    
 </body>
 
 </html>
