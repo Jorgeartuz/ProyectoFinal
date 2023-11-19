@@ -1,95 +1,127 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Verificar si el navegador soporta localStorage
-    if (typeof Storage === 'undefined') {
-        alert('Lo siento, tu navegador no admite el almacenamiento local.');
-        return;
-    }
-
-    // Obtener elementos del formulario
     const formMatricula = document.getElementById('formMatricula');
     const temasDisponibles = document.getElementById('temasDisponibles');
     const estudiantesDisponibles = document.getElementById('estudiantesDisponibles');
     const listaMatriculas = document.getElementById('matriculas');
+    const mensajeError = document.getElementById('mensajeError'); // Nuevo elemento para mensajes de error
 
-    // Cargar opciones de temas y estudiantes desde el localStorage (asume que ya los tienes almacenados)
     const temas = JSON.parse(localStorage.getItem('temas')) || [];
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
-    // Obtener solo los usuarios de tipo 'Student' para cargar en el select de estudiantes
     const estudiantes = users.filter(user => user.user_type === 'Student') || [];
 
-    // Función para cargar opciones en un elemento select
     function cargarOpciones(elementoSelect, opciones) {
         elementoSelect.innerHTML = '';
         opciones.forEach((opcion) => {
             const option = document.createElement('option');
-            option.value = opcion.codigo || opcion.id; // Ajusta esto según la estructura de tus objetos
-            option.textContent = opcion.nombre || opcion.username; // Usar el campo apropiado para temas
+            option.value = opcion.codigo || opcion.id; 
+            option.textContent = opcion.nombre || opcion.username; 
             elementoSelect.appendChild(option);
         });
     }
 
-    // Cargar opciones de temas y estudiantes en los elementos select
     cargarOpciones(temasDisponibles, temas);
     cargarOpciones(estudiantesDisponibles, estudiantes);
 
-    // Función para mostrar la lista de matrículas
     function mostrarListaMatriculas() {
         const matriculas = JSON.parse(localStorage.getItem('matriculas')) || [];
-        listaMatriculas.innerHTML = '';
+        
+        // Selecciona o crea la tabla
+        let tabla = document.getElementById('tablaMatriculas');
+        if (!tabla) {
+            tabla = document.createElement('table');
+            tabla.id = 'tablaMatriculas';
+            listaMatriculas.appendChild(tabla);
+        }
+    
+        // Limpia el contenido anterior de la tabla
+        tabla.innerHTML = '';
+    
+        // Crea encabezados de tabla
+        const encabezados = ['Fecha', 'Tema', 'Estudiante', 'Valor'];
+        const encabezadosRow = document.createElement('tr');
+        encabezados.forEach(encabezado => {
+            const th = document.createElement('th');
+            th.textContent = encabezado;
+            encabezadosRow.appendChild(th);
+        });
+        tabla.appendChild(encabezadosRow);
+    
+        // Agrega filas de datos a la tabla
         matriculas.forEach((matricula) => {
-            const listItem = document.createElement('li');
-            listItem.innerHTML = `<p>Fecha: ${matricula.fecha}, Tema: ${matricula.temaId}, Estudiante: ${matricula.estudianteId}, Valor: ${matricula.valor}</p>`;
-            listaMatriculas.appendChild(listItem);
+            const fila = document.createElement('tr');
+            const temaNombre = temas.find(tema => tema.codigo === matricula.temaId)?.nombre || 'Tema no encontrado';
+            const estudianteNombre = estudiantes.find(estudiante => estudiante.codigo === matricula.estudianteId)?.nombre || 'Estudiante no encontrado';
+    
+            // Crea celdas de datos
+            const celdaFecha = document.createElement('td');
+            celdaFecha.textContent = matricula.fecha;
+            fila.appendChild(celdaFecha);
+    
+            const celdaTema = document.createElement('td');
+            celdaTema.textContent = temaNombre;
+            fila.appendChild(celdaTema);
+    
+            const celdaEstudiante = document.createElement('td');
+            celdaEstudiante.textContent = estudianteNombre;
+            fila.appendChild(celdaEstudiante);
+    
+            const celdaValor = document.createElement('td');
+            celdaValor.textContent = matricula.valor;
+            fila.appendChild(celdaValor);
+    
+            // Agrega la fila a la tabla
+            tabla.appendChild(fila);
         });
     }
+    
 
-    // Función para realizar una nueva matrícula
     function realizarMatricula() {
-        // Obtener los datos necesarios del formulario de matrícula
         const fechaMatricula = document.getElementById('fechaMatricula').value;
-        const temaSeleccionado = temas.find((tema) => tema.codigo == temasDisponibles.value);
-        const estudianteSeleccionado = estudiantes.find((user) => user.codigo == estudiantesDisponibles.value);
-        const valorMatricula = document.getElementById('valorMatricula').value;
+        const temaSeleccionadoCodigo = temasDisponibles.options[temasDisponibles.selectedIndex].value;
+    
+        const temaSeleccionado = temas.find((tema) => tema.codigo == temaSeleccionadoCodigo);
+    
+        // Mueve esta línea hacia arriba para declarar estudianteSeleccionadoCodigo antes de usarla
+        const estudianteSeleccionadoCodigo = estudiantesDisponibles.options[estudiantesDisponibles.selectedIndex].value;
+    
+        console.log('Iniciando función realizarMatricula');
+        console.log('Fecha de Matrícula:', fechaMatricula);
+        console.log('Tema seleccionado:', temaSeleccionado);
+        console.log('Estudiante seleccionado:', estudiantes);
 
-        // Imprimir los valores seleccionados en la consola para depuración
-        console.log('Tema Seleccionado:', temaSeleccionado);
-        console.log('Estudiante Seleccionado:', estudianteSeleccionado);
+        const estudianteSeleccionado = users.find((user) => user.codigo == estudianteSeleccionadoCodigo);
 
-        // Validar que se haya seleccionado un tema y un estudiante
+        // Mostrar mensaje de error en lugar de alert
         if (!temaSeleccionado || !estudianteSeleccionado) {
-            alert('Por favor, selecciona un tema y un estudiante.');
+            mensajeError.textContent = 'Por favor, selecciona un tema y un estudiante.';
             return;
+        } else {
+            mensajeError.textContent = ''; // Limpiar el mensaje de error si no hay errores
         }
 
-        // Realizar la matrícula (agregarla al objeto de matrículas)
         const matriculas = JSON.parse(localStorage.getItem('matriculas')) || [];
         const nuevaMatricula = {
-            id: matriculas.length + 1, // Generar un nuevo ID (ajusta esto según tu lógica)
+            id: matriculas.length + 1, 
             fecha: fechaMatricula,
             temaId: temaSeleccionado.codigo,
             estudianteId: estudianteSeleccionado.codigo,
-            valor: parseFloat(valorMatricula),
+            valor: parseFloat(document.getElementById('valorMatricula').value),
         };
 
         matriculas.push(nuevaMatricula);
 
-        // Guardar el objeto actualizado en el localStorage
         localStorage.setItem('matriculas', JSON.stringify(matriculas));
 
-        // Mostrar la lista actualizada de matrículas
         mostrarListaMatriculas();
 
-        // Limpiar el formulario después de realizar la matrícula
         formMatricula.reset();
     }
 
-    // Asociar la función de realizarMatricula al evento de envío del formulario
     formMatricula.addEventListener('submit', function (event) {
         event.preventDefault();
         realizarMatricula();
     });
 
-    // Mostrar la lista inicial de matrículas al cargar la página
     mostrarListaMatriculas();
 });
