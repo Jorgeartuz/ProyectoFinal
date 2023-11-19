@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
         opciones.forEach((opcion) => {
             const option = document.createElement('option');
             option.value = opcion.codigo;
-            option.textContent = opcion.nombre; // Ajusta esto según la estructura de tus objetos
+            option.textContent = opcion.username;
             elementoSelect.appendChild(option);
         });
     }
