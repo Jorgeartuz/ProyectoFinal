@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
         elementoSelect.innerHTML = '';
         opciones.forEach((opcion) => {
             const option = document.createElement('option');
-            option.value = opcion.codigo;
-            option.textContent = opcion.username;
+            option.value = opcion.codigo || opcion.id; // Ajusta esto según la estructura de tus objetos
+            option.textContent = opcion.nombre || opcion.username; // Usar el campo apropiado para temas
             elementoSelect.appendChild(option);
         });
     }
@@ -48,10 +48,14 @@ document.addEventListener('DOMContentLoaded', function () {
     function realizarMatricula() {
         // Obtener los datos necesarios del formulario de matrícula
         const fechaMatricula = document.getElementById('fechaMatricula').value;
-        const temaSeleccionado = temas.find((tema) => tema.codigo === temasDisponibles.value); // Usar el campo apropiado para temas
-        const estudianteSeleccionado = users.find((user) => user.codigo === estudiantesDisponibles.value); // Usar el campo apropiado para estudiantes
+        const temaSeleccionado = temas.find((tema) => tema.codigo == temasDisponibles.value);
+        const estudianteSeleccionado = estudiantes.find((user) => user.codigo == estudiantesDisponibles.value);
         const valorMatricula = document.getElementById('valorMatricula').value;
-    
+
+        // Imprimir los valores seleccionados en la consola para depuración
+        console.log('Tema Seleccionado:', temaSeleccionado);
+        console.log('Estudiante Seleccionado:', estudianteSeleccionado);
+
         // Validar que se haya seleccionado un tema y un estudiante
         if (!temaSeleccionado || !estudianteSeleccionado) {
             alert('Por favor, selecciona un tema y un estudiante.');
@@ -63,9 +67,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const nuevaMatricula = {
             id: matriculas.length + 1, // Generar un nuevo ID (ajusta esto según tu lógica)
             fecha: fechaMatricula,
-            temaId: temaSeleccionado.codigo, // Usar el campo apropiado para temas
-            estudianteId: estudianteSeleccionado.codigo, // Usar el campo apropiado para estudiantes
-            valor: parseFloat(valorMatricula), // Ajusta esto según la estructura de tus objetos
+            temaId: temaSeleccionado.codigo,
+            estudianteId: estudianteSeleccionado.codigo,
+            valor: parseFloat(valorMatricula),
         };
 
         matriculas.push(nuevaMatricula);
@@ -80,8 +84,11 @@ document.addEventListener('DOMContentLoaded', function () {
         formMatricula.reset();
     }
 
-    // Asociar la función de realizarMatricula al evento de clic del botón
-    document.getElementById('realizarMatricula').addEventListener('click', realizarMatricula);
+    // Asociar la función de realizarMatricula al evento de envío del formulario
+    formMatricula.addEventListener('submit', function (event) {
+        event.preventDefault();
+        realizarMatricula();
+    });
 
     // Mostrar la lista inicial de matrículas al cargar la página
     mostrarListaMatriculas();
