@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Matrícula - Administrador</title>
+    <script src="../Js/gestionMatriculas.js"></script>
     <link rel="stylesheet" href="../estilos/PanelAdministrador.css">
 </head>
 <body>
@@ -30,38 +31,35 @@
         <div class="content">
             <h2>Gestión de Matrícula</h2>
 
-            <section id="tablaMatriculas">
-                <!-- Aquí se mostrará la tabla de matriculas existentes -->
+            <section id="matriculas">
+                <h2>Lista de matriculas</h2>
+                <!-- Aquí se mostrará la lista de matriculas existentes -->
             </section>
 
             <section id="formularioMatricula">
                 <h3>Realizar Nueva Matrícula</h3>
-            
-                <!-- Agrega el elemento mensajeError aquí -->
-                <div id="mensajeError" style="color: red;"></div>
-            
                 <form id="formMatricula">
                     <label for="fechaMatricula">Fecha de Matrícula:</label>
                     <input type="date" id="fechaMatricula" required>
-            
+
                     <label for="temasDisponibles">Selecciona un Tema:</label>
                     <select id="temasDisponibles" required>
                         <!-- Opciones de temas se cargarán dinámicamente del localStorage -->
                     </select>
-            
+
                     <label for="estudiantesDisponibles">Selecciona un Estudiante:</label>
                     <select id="estudiantesDisponibles" required>
                         <!-- Opciones de estudiantes se cargarán dinámicamente del localStorage -->
                     </select>
-            
+
                     <label for="valorMatricula">Valor de Matrícula:</label>
                     <input type="number" id="valorMatricula" required>
-            
-                    <button type="submit">Realizar Matrícula</button>
+
+                    <button type="button" onclick="realizarMatricula()">Realizar Matrícula</button>
                 </form>
             </section>
         </div>
     </div>
 </body>
-<script src="../Js/gestionMatriculas.js"></script>
+
 </html>
