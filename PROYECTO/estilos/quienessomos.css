@@ -84,6 +84,16 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
+.join-us h4 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.join-us li {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
 .about-us p {
     font-size: 18px;
     line-height: 1.6;
@@ -109,7 +119,7 @@ nav a:hover {
 }
 
 .social-icons a {
-    color: #4caf50;
+    color: #dee4df;
     margin: 0 15px;
     font-size: 24px;
     text-decoration: none;
@@ -117,7 +127,7 @@ nav a:hover {
 }
 
 .social-icons a:hover {
-    color: #45a049;
+    color: #dee4df;
 }
 
 .values,
@@ -128,6 +138,7 @@ nav a:hover {
 .philosophy,
 .projects,
 .testimonials,
+.join-us,
 .resources {
     text-align: left;
     margin-top: 50px;
@@ -140,18 +151,22 @@ nav a:hover {
 .partners h3,
 .philosophy h3,
 .projects h3,
+.join-us h3,
 .testimonials h3,
 .resources h3 {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #4caf50;
+    color: #dee4df;
 }
 
 .list {
     list-style: none;
     padding: 0;
 }
-
+a{
+    text-decoration: none;
+    color: #dee4df;
+}
 .list-item {
     font-size: 18px;
     margin-bottom: 15px;
@@ -161,7 +176,7 @@ nav a:hover {
 
 .list-item::before {
     content: '\2022';
-    color: #4caf50;
+    color: #dee4df;
     position: absolute;
     left: 0;
 }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Evaluación - Instructor</title>
     <link rel="stylesheet" href="../estilos/PanelInstructor.css">
-    <link rel="stylesheet" href="../estilos/CrearEvaluacion.css">
+    <script src="../Js/evaluacionInstructor.js"></script>
 </head>
 
 <body>
@@ -25,17 +25,27 @@
             </ul>
         </div>
 
+        <div id="evaluaciones">
+            <h2>Lista de evaluaciones</h2>
+        </div>
+
+
         <div class="content">
             <h2>Crear Nueva Evaluación</h2>
             <form id="formularioEvaluacion">
                 <label for="nombreEvaluacion">Nombre de la Evaluación:</label>
                 <input type="text" id="nombreEvaluacion" required>
 
-                <label for="nombreEvaluacion">Cursos Asociados:</label>
-                <input type="text" id="nombreEvaluacion" required>
+                <label for="cursosAspcoadps">Cursos Asociados:</label>
+                <select id="cursosAsociados">
+                    <!-- Opciones de cursos se cargarán dinámicamente del localStorage cursos, se pueden escoger 1 o mas cursos -->
+                </select>
 
-                <label for="nombreEvaluacion">Tema Asociado:</label>
-                <input type="text" id="nombreEvaluacion" required>
+                <label for="temasAsociado">Temas Asociado:</label>
+                <select id="temasAsociado" required>
+                    <!-- Opciones de temas se cargarán dinámicamente del localStorage -->
+                </select>
+                
 
                 <label for="descripcionEvaluacion">Descripción:</label>
                 <textarea id="descripcionEvaluacion" required></textarea>

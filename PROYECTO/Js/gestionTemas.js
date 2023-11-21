@@ -98,6 +98,7 @@ function agregarTema() {
         alert('Ya existe un tema con ese código.');
     } else {
         // Agregar el nuevo tema a la lista
+        const cursosAsociados = obtenerCursosAsociados();
         temas.push({
             codigo,
             nombre,
@@ -125,7 +126,6 @@ function obtenerCursosAsociados() {
     return cursosAsociados;
 }
 
-
 function eliminarTema(codigo) {
     // Obtener la lista de temas del localStorage o inicializar un array vacío
     const temas = JSON.parse(localStorage.getItem('temas')) || [];
@@ -138,6 +138,11 @@ function eliminarTema(codigo) {
 
     // Recargar la lista de temas
     cargarTemas();
+}
+
+function obtenerTemas() {
+    const temas = JSON.parse(localStorage.getItem('temas')) || [];
+    return temas;
 }
 
 function limpiarFormularioTema() {

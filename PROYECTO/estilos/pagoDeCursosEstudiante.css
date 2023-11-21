@@ -1,0 +1,80 @@
+/* estilos.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://i.postimg.cc/VsgfNsX1/8881a7771b87dcc88357655c236147ef.jpg');
+    background-size: cover;  /* Hace que la imagen de fondo cubra completamente el Ã¡rea */
+    background-repeat: no-repeat;
+    color: #ffffff; /* Texto en color claro para contraste */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.formulario-pago {
+    background: #383838; /* Fondo oscuro para el formulario */
+    padding: 54px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px; /* Ancho máximo para grandes pantallas */
+    margin-top: 266px;
+}
+
+h2 {
+    color: #5884c5; /* Color brillante para el título */
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid #e5e5e5;
+    background-color: #292929;
+    color: #ffffff;
+}
+
+a{
+    text-decoration: none;
+    color: #7c9dc0;
+}
+
+.pagar {
+    width: 100%;
+    background-color: #0d6efd;
+    color: white;
+    padding: 17px;
+    border: none;
+    border-radius: 26px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    margin-left: 151px;
+}
+
+p{
+    margin-top: -8px;
+}
+
+.pagar :hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+    .formulario-pago {
+        margin: 10px;
+        box-shadow: none;
+    }
+}

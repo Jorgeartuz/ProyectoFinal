@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página de Pagos</title>
+    <link rel="stylesheet" type="text/css" href="../estilos/pagoDeCursosEstudiante.css">
+</head>
+<body>
+    <div class="formulario-pago">
+        <h2>Pago en línea - EduCecar</h2>
+        <form action="/procesar_pago" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre"><br><br>
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido"><br><br>
+
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion"><br><br>
+
+            <label for="curso">Curso:</label>
+            <select id="curso" name="curso" onchange="actualizarPrecio()">
+                <option value="desarrollo_web">Curso de Desarrollo Web - Fundamentos de HTML y CSS | $250.000</option>
+                <option value="desarrollo_web">Curso de Desarrollo Web - JavaScript y DOM | $200.000</option>
+                <option value="desarrollo_web">Curso de Desarrollo Web - Frameworks Front-End | $230.000</option>
+                <option value="marketing_digital">Curso de Marketing Digital - SEO y SEM | $130.000</option>
+                <option value="marketing_digital">Curso de Marketing Digital - Marketing en Redes Sociales | $230.000</option>
+                <option value="marketing_digital">Curso de Marketing Digital - Email Marketing | $300.000</option>
+                <option value="diseño-grafico">Curso de Diseño Gráfico - Fundamentos del Diseño Gráfico | $290.000</option>
+                <option value="diseño-grafico">Curso de Diseño Gráfico - Herramientas de Diseño Gráfico | $190.000</option>
+                <option value="diseño-grafico">Curso de Diseño Gráfico - Diseño para Medios Digitales | $130.000</option>
+                <option value="idiomas">Curso de Idiomas - Gramática y Vocabulario Básico | $140.000</option>
+                <option value="idiomas">Curso de Idiomas - Cultura y Expresiones Idiomáticas | $120.000</option>
+                <option value="idiomas">Curso de Idiomas - Habilidades de Conversación | $220.000</option>
+                <option value="guitarra">Curso de Guitarra - Fundamentos de la Guitarra | $223.000</option>
+                <option value="guitarra">Curso de Guitarra - Acordes Básicos y Progresiones de Acordes | $323.000</option>
+                <option value="guitarra">Curso de Guitarra - Repertorio y Interpretación | $123.000</option>
+                <option value="guitarra">Curso de Fotografía - Fundamentos de la Fotografía | $223.000</option>
+                <option value="guitarra">Curso de Fotografía - Edición y Post-Procesamiento | $123.000</option>
+                <option value="guitarra">Curso de Fotografía - Fotografía en Diferentes Entornos | $153.000</option>
+
+                <!-- Más cursos aquí -->
+            </select><br><br>
+            
+
+            <label for="total">Total a Pagar:</label>
+            <input type="text" id="total" name="total" readonly><br><br>
+
+            </select>
+            <p>Tus cursos se activara en tu panel de estudiante despues de pagar en menos de 24 horas, si no te haz registrado <a href="../html/registrarse.html">hazlo ahora aquí</a>.</p>
+            <br>
+
+            <a class="pagar " href="https://jdmb1n.salduu.com/p/50-p-ginas-tiles-de-internet?pay=true">Pagar</a>
+        </form>
+    
+    </div>
+</body>
+<script src="../Js/pagoDeCursosEstudiante.js"></script>
+</html>

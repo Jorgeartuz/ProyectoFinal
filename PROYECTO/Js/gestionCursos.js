@@ -131,6 +131,11 @@ function eliminarCurso(codigo) {
     cargarCursos();
 }
 
+function obtenerCursos() {
+    const cursos = JSON.parse(localStorage.getItem('cursos')) || [];
+    return cursos;
+}
+
 function limpiarFormularioCurso() {
     // Limpiar los campos del formulario
     document.getElementById('codigoCurso').value = '';

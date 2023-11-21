@@ -52,5 +52,5 @@ signupForm.addEventListener('submit', (e) => {
     // Mensaje de registro exitoso y redirección
     alert('¡Registro exitoso!');
     // Considera utilizar una forma más avanzada de navegación, especialmente si es una aplicación de una sola página.
-    window.location.href = 'Iniciodesesion.html';
+    window.location.href = 'iniciodesesion.html';
 });

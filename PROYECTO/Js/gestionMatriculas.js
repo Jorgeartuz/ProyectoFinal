@@ -112,13 +112,24 @@ function realizarMatricula() {
 
     // Obtener la lista de matrículas del localStorage o inicializar un array vacío
     const matriculas = obtenerMatriculas();
+    const temas = obtenerTemas();
+
+    const tema = temas.find(t => t.codigo === temaCodigo);
+
+    if (!tema || !tema.cursosAsociados.length) {
+        alert('No se pudo encontrar el tema o el tema no tiene cursos asociados.');
+        return;
+    }
+
+    const cursoAsociado = tema.cursosAsociados[0];
 
     // Agregar la nueva matrícula a la lista
     matriculas.push({
         fechaMatricula,
         temaCodigo,
         estudianteCodigo,
-        valorMatricula
+        valorMatricula,
+        cursoAsociado
     });
 
     // Guardar la lista actualizada en el localStorage
@@ -132,7 +143,6 @@ function realizarMatricula() {
 }
 
 function obtenerMatriculas() {
-    // Implementación para obtener las matrículas, por ejemplo:
     const matriculas = JSON.parse(localStorage.getItem('matriculas')) || [];
     return matriculas;
 }
@@ -169,3 +179,4 @@ function limpiarFormularioMatricula() {
     document.getElementById('estudiantesDisponibles').selectedIndex = -1;
     document.getElementById('valorMatricula').value = '';
 }
+
