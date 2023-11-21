@@ -72,7 +72,6 @@ function actualizarDatos() {
         return false;
     }
 
-    // Separar el nombre y el apellido si el formato es "Nombre Apellido"
     var nombres = nombreCompleto.split(' ');
     var first_name = nombres[0];
     var last_name = nombres.slice(1).join(' ');
@@ -89,15 +88,24 @@ function actualizarDatos() {
     userData.password = contrasena;
 
     localStorage.setItem('logged_in_user_data', JSON.stringify(userData));
-    
-    // Actualizar también el nombre en el localStorage para que se refleje al iniciar sesión
+    actualizarDatosEnArrayUsuarios(userData); // Actualizar los datos en el array de usuarios
+
     localStorage.setItem('logged_in_user_name', `${first_name} ${last_name}`);
 
-    // Agregar un mensaje para indicar que la actualización fue exitosa
     alert('Datos actualizados con éxito.');
-
     return true; // Indicar que la actualización fue exitosa
 }
+
+function actualizarDatosEnArrayUsuarios(userData) {
+    var users = JSON.parse(localStorage.getItem('users')) || [];
+    var userIndex = users.findIndex(user => user.id_number === userData.id_number);
+
+    if (userIndex !== -1) {
+        users[userIndex] = {...users[userIndex], ...userData};
+        localStorage.setItem('users', JSON.stringify(users));
+    }
+}
+
 
 function deshabilitarEdicion() {
     console.log('Deshabilitando la edición...');
@@ -135,7 +143,32 @@ function mostrarContraseña() {
 }
 
 function eliminarCuenta() {
-    console.log('Eliminando la cuenta...');
-    // Lógica para eliminar la cuenta
-    alert("Cuenta eliminada con éxito");
+    var confirmacion = confirm("¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.");
+
+    if (confirmacion) {
+        var userData = JSON.parse(localStorage.getItem('logged_in_user_data'));
+
+        if (userData) {
+            var users = JSON.parse(localStorage.getItem('users')) || [];
+            var userIndex = users.findIndex(user => user.id_number === userData.id_number);
+
+            if (userIndex !== -1) {
+                // Eliminar el usuario del array de usuarios
+                users.splice(userIndex, 1);
+                localStorage.setItem('users', JSON.stringify(users));
+
+                // Limpiar datos de la sesión actual
+                localStorage.removeItem('logged_in_user_data');
+                localStorage.removeItem('logged_in_user_name');
+                localStorage.removeItem('logged_in_user_type');
+
+                // Cerrar la sesión y redirigir al usuario
+                alert("Cuenta eliminada con éxito.");
+                window.location.href = 'Iniciodesesion.html'; // Suponiendo que 'index.html' es tu página de inicio o login
+            } else {
+                alert("Ocurrió un error al intentar eliminar la cuenta.");
+            }
+        }
+    }
 }
+
