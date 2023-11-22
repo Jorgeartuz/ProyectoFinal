@@ -1,33 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-    cargarCursosEnSelect();
     cargarTemasEnSelect();
     cargarEvaluaciones();
 });
-
-function cargarCursosEnSelect() {
-    // Obtener el select de cursos
-    const selectCursos = document.getElementById('cursosAsociados');
-
-    // Obtener la lista de cursos del localStorage o inicializar un array vacío
-    const cursos = JSON.parse(localStorage.getItem('cursos')) || [];
-
-    // Limpiar el contenido actual del select
-    selectCursos.innerHTML = '';
-
-    // Verificar si hay cursos para mostrar
-    if (cursos.length > 0) {
-        // Agregar opciones al select por cada curso
-        cursos.forEach(curso => {
-            const option = document.createElement('option');
-            option.value = curso.codigo;
-            option.textContent = `${curso.nombre} (${curso.codigo})`;
-            selectCursos.appendChild(option);
-        });
-    } else {
-        // Mostrar un mensaje si no hay cursos
-        selectCursos.innerHTML = '<option value="" disabled>No hay cursos disponibles.</option>';
-    }
-}
 
 function cargarTemasEnSelect() {
     // Obtener el select de temas
@@ -57,11 +31,14 @@ function cargarTemasEnSelect() {
 function crearEvaluacion() {
     // Obtener los valores del formulario
     const nombre = document.getElementById('nombreEvaluacion').value;
-    const cursoAsociado = document.getElementById('cursosAsociados').value;
     const temaAsociado = document.getElementById('temasAsociado').value;
     const descripcion = document.getElementById('descripcionEvaluacion').value;
     const fecha = document.getElementById('fechaEvaluacion').value;
     const enlace = document.getElementById('enlaceEvaluacion').value;
+
+    // Obtener la lista de estudiantes matriculados en el tema del localStorage o inicializar un array vacío
+    const estudiantesMatriculados = obtenerEstudiantesMatriculadosEnTema(temaAsociado);
+
 
     // Obtener la lista de evaluaciones del localStorage o inicializar un array vacío
     const evaluaciones = JSON.parse(localStorage.getItem('evaluaciones')) || [];
@@ -69,11 +46,11 @@ function crearEvaluacion() {
     // Agregar la nueva evaluación a la lista
     evaluaciones.push({
         nombre,
-        cursoAsociado,
         temaAsociado,
         descripcion,
         fecha,
-        enlace
+        enlace,
+        usuariosMatriculados: estudiantesMatriculados // Incluir la lista de estudiantes matriculados
     });
 
     // Guardar la lista actualizada en el localStorage
@@ -84,6 +61,26 @@ function crearEvaluacion() {
 
     // Puedes redirigir a otra página o realizar alguna acción adicional si es necesario
     // window.location.href = 'nuevaPagina.html';
+}
+
+function obtenerEstudiantesMatriculadosEnTema(temaCodigo) {
+    // Lógica para obtener estudiantes matriculados en el tema especificado
+    // Puedes obtener esta información desde el localStorage u otra fuente de datos
+    // y devolver un array de códigos de estudiantes matriculados.
+    // Ejemplo:
+    const matriculas = obtenerMatriculas();
+    const estudiantesMatriculados = matriculas
+        .filter(matricula => matricula.temaCodigo === temaCodigo)
+        .map(matricula => matricula.estudianteCodigo);
+    return estudiantesMatriculados;
+}
+
+function obtenerMatriculas() {
+    // Lógica para obtener las matrículas desde el localStorage u otra fuente de datos
+    // Devuelve un array de matrículas.
+    // Ejemplo:
+    const matriculas = JSON.parse(localStorage.getItem('matriculas')) || [];
+    return matriculas;
 }
 
 function cargarEvaluaciones() {
@@ -103,7 +100,6 @@ function cargarEvaluaciones() {
         table.innerHTML = `
             <tr>
                 <th>Nombre</th>
-                <th>Curso Asociado</th>
                 <th>Tema Asociado</th>
                 <th>Descripción</th>
                 <th>Fecha</th>
@@ -117,7 +113,6 @@ function cargarEvaluaciones() {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${evaluacion.nombre}</td>
-                <td>${evaluacion.cursoAsociado}</td>
                 <td>${evaluacion.temaAsociado}</td>
                 <td>${evaluacion.descripcion}</td>
                 <td>${evaluacion.fecha}</td>
@@ -154,7 +149,6 @@ function eliminarEvaluacion(nombreEvaluacion) {
 function limpiarFormularioEvaluacion() {
     // Limpiar los campos del formulario
     document.getElementById('nombreEvaluacion').value = '';
-    document.getElementById('cursosAsociados').selectedIndex = -1;
     document.getElementById('temasAsociado').selectedIndex = -1;
     document.getElementById('descripcionEvaluacion').value = '';
     document.getElementById('fechaEvaluacion').value = '';
