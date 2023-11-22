@@ -119,3 +119,26 @@ button:focus {
     outline: none;
     border-color: #fff;
 }
+
+
+
+.tablecalificaciones{
+    border-collapse: collapse;
+    margin-top: 20px;
+    float:inline-start;
+}
+
+.tablecalificaciones,th,td {
+    border: 1px solid #838282;
+    padding: 12px;
+    font-size: 14px;
+}
+
+.tablecalificaciones,th {
+    background-color: #303030;
+    font-weight: bold;
+}
+
+.tablecalificaciones,tr:hover {
+    background-color: #444444;
+}

@@ -3,37 +3,28 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function cargarVideosPorCursos() {
-    // Obtener el parámetro cursoCodigo de la URL
     const params = new URLSearchParams(window.location.search);
     const cursoCodigo = params.get('cursoCodigo');
-
-    // Obtener la sección donde se mostrarán los videos
     const misVideosDiv = document.getElementById('misVideos');
-
-    // Obtener la lista de cursos del localStorage o inicializar un array vacío
     const cursos = JSON.parse(localStorage.getItem('cursos')) || [];
 
-    // Limpiar el contenido actual de la sección
     misVideosDiv.innerHTML = '';
 
-    // Buscar el curso por su código
     const cursoSeleccionado = cursos.find(curso => curso.codigo === cursoCodigo);
 
-    // Verificar si se encontró el curso
     if (cursoSeleccionado) {
-        const videosAsociados = cursoSeleccionado.videosAsociados;
-
-        // Obtener la lista de videos del localStorage o inicializar un array vacío
+        const videosAsociados = cursoSeleccionado.videosAsociados || [];
         const videos = JSON.parse(localStorage.getItem('videos')) || [];
-
-        // Filtrar videos que estén asociados al curso seleccionado
         const videosCurso = videos.filter(video => videosAsociados.includes(video.codigo));
 
-        // Mostrar los videos en la sección
         if (videosCurso.length > 0) {
             videosCurso.forEach(video => {
                 const videoDiv = document.createElement('div');
-                videoDiv.innerHTML = `<p>${video.nombre}</p>`;
+                videoDiv.classList.add("video-container"); // Clase para estilizar si es necesario
+                videoDiv.innerHTML = `
+                    <h3>${video.nombre}</h3>
+                    <iframe src="${video.url}" frameborder="0" allowfullscreen></iframe>
+                `;
                 misVideosDiv.appendChild(videoDiv);
             });
         } else {

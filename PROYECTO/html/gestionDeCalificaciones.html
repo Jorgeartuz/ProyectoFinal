@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - Instructor</title>
+    <link rel="stylesheet" href="../estilos/PanelInstructor.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Panel de Control - Instructor</h1>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="../html/PanelInstructor.html">Inicio</a></li>
+                <li><a href="..//html/cursosInstructor.html">Mis Cursos</a></li>
+                <li><a href="../html/EvaluacionIntructor.html">Crear Evaluación</a></li>
+                <li><a href="../html/gestionDeCalificaciones.html">Gestión de Calificaciones</a></li>
+                <li><a href="../html/ConfiguracionInstructor.html">Configuración</a></li>
+                <li><a href="../html/InicioDeSesion.html">Cerrar Sesión</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Gestiona Tus Calificaciones</h2>
+
+            <!-- Selector de Estudiantes -->
+            <label for="estudiantesDisponibles">Selecciona un Estudiante:</label>
+            <select class="dark-btn" id="estudiantesDisponibles"></select>
+            <br>
+            <br>
+
+            <label for="temasDisponibles">Selecciona un Tema:</label>
+            <select class="dark-btn" id="temasDisponibles"></select>
+
+            <!-- Campos de Calificación -->
+            <div id="camposCalificacion">
+                <br>
+                <label for="nota1">Nota 1:</label>
+                <input type="number" id="nota1" placeholder="Nota 1">
+
+                <label for="nota2">Nota 2:</label>
+                <input type="number" id="nota2" placeholder="Nota 2">
+
+                <label for="nota3">Nota 3:</label>
+                <input type="number" id="nota3" placeholder="Nota 3">
+
+                <label for="nota4">Nota 4:</label>
+                <input type="number" id="nota4" placeholder="Nota 4">
+                
+                <button class="dark-btn" onclick="enviarCalificacion()">Enviar Calificaciones</button>
+                <h3>Calificaciones Enviadas</h3>
+    <table id="tablaCalificaciones">
+        <thead>
+            <tr>
+                <th>Tema</th>
+                <th>Estudiante</th>
+                <th>Nota 1</th>
+                <th>Nota 2</th>
+                <th>Nota 3</th>
+                <th>Nota 4</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Las filas se llenarán con JavaScript -->
+        </tbody>
+    </table>
+            </div>
+
+            
+
+
+
+        </div>
+    </div>
+</body>
+<script src="../Js/gestionCalificaciones.js"></script>
+</html>

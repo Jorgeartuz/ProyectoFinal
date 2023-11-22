@@ -20,40 +20,59 @@
                 <li><a href="../html/PanelInstructor.html">Inicio</a></li>
                 <li><a href="../html/cursosInstructor.html">Mis Cursos</a></li>
                 <li><a href="../html/EvaluacionIntructor.html">Crear Evaluación</a></li>
+                <li><a href="../html/gestionDeCalificaciones.html">Gestión de Calificaciones</a></li>
                 <li><a href="../html/ConfiguracionInstructor.html">Configuración</a></li>
                 <li><a href="../html/InicioDeSesion.html">Cerrar Sesión</a></li>
             </ul>
         </div>
 
-        <div id="evaluaciones">
-            <h2>Lista de evaluaciones</h2>
-        </div>
-
 
         <div class="content">
+
+            <div id="evaluaciones">
+                <h2>Lista de evaluaciones</h2>
+                <table class="tablecalificaciones">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tema</th>
+                            <th>Fecha</th>
+                            <th>Enlace</th>
+                        </tr>
+                    </thead>
+                    <!-- El cuerpo de la tabla se llenará con JavaScript -->
+                </table>
+            </div>
+            
             <h2>Crear Nueva Evaluación</h2>
             <form id="formularioEvaluacion">
                 <label for="nombreEvaluacion">Nombre de la Evaluación:</label>
                 <input type="text" id="nombreEvaluacion" required>
 
                 <label for="temasAsociado">Temas Asociado:</label>
-                <select id="temasAsociado" required>
+                <select class="dark-btn" id="temasAsociado" required>
                     <!-- Opciones de temas se cargarán dinámicamente del localStorage -->
                 </select>
                 
-
+                <br>
+                <br>
                 <label for="descripcionEvaluacion">Descripción:</label>
                 <textarea id="descripcionEvaluacion" required></textarea>
-
+                <br>
+                <br>
                 <label for="fechaEvaluacion">Fecha de la Evaluación:</label>
                 <input type="date" id="fechaEvaluacion" required>
 
                 <label for="enlaceEvaluacion">Enlace de Evaluación (URL):</label>
                 <input type="url" id="enlaceEvaluacion" required>
 
-                <button type="button" onclick="crearEvaluacion()">Crear Evaluación</button>
+                <button  class="dark-btn" type="button" onclick="crearEvaluacion()">Crear Evaluación</button>
             </form>
+
+            
         </div>
+
+        
     </div>
 </body>
 

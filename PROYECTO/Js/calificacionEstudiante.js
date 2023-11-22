@@ -1,42 +1,29 @@
+document.addEventListener('DOMContentLoaded', function() {
+    mostrarCalificacionesDelEstudiante();
+});
 
-const calificaciones = [
-    { curso: 'Matemáticas', primerCorte: 75, segundoCorte: 80, definitiva: 78 },
-    { curso: 'Historia', primerCorte: 85, segundoCorte: 90, definitiva: 88 },
+function mostrarCalificacionesDelEstudiante() {
+    const loggedInUser = JSON.parse(localStorage.getItem('logged_in_user_data')) || {};
 
-];
-
-function mostrarCalificaciones() {
-    const tablaCuerpo = document.getElementById('tablaCuerpo');
-
-
-    if (!tablaCuerpo) {
-        console.error('El elemento con id "tablaCuerpo" no fue encontrado en el DOM.');
+    if (!loggedInUser.id_number) {
+        alert('No se encontró información del estudiante.');
         return;
     }
 
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const estudiante = users.find(user => user.id_number === loggedInUser.id_number);
 
-    tablaCuerpo.innerHTML = '';
+    if (estudiante && estudiante.calificaciones) {
+        const tabla = document.getElementById('tablaCuerpo');
+        tabla.innerHTML = '';
 
-    if (calificaciones.length === 0) {
-
-        const filaMensaje = document.createElement('tr');
-        filaMensaje.innerHTML = '<td colspan="4">No hay calificaciones disponibles.</td>';
-        tablaCuerpo.appendChild(filaMensaje);
-        return;
+        const fila = tabla.insertRow();
+        fila.insertCell(0).textContent = estudiante.calificaciones.tema || '';
+        fila.insertCell(1).textContent = estudiante.calificaciones.nota1 || '';
+        fila.insertCell(2).textContent = estudiante.calificaciones.nota2 || '';
+        fila.insertCell(3).textContent = estudiante.calificaciones.nota3 || '';
+        fila.insertCell(4).textContent = estudiante.calificaciones.nota4 || '';
+    } else {
+        alert('No se encontraron calificaciones para el estudiante.');
     }
-
-
-    calificaciones.forEach(calificacion => {
-        const fila = document.createElement('tr');
-        fila.innerHTML = `
-            <td>${calificacion.curso}</td>
-            <td>${calificacion.primerCorte}</td>
-            <td>${calificacion.segundoCorte}</td>
-            <td>${calificacion.definitiva}</td>
-        `;
-        tablaCuerpo.appendChild(fila);
-    });
 }
-
-
-document.addEventListener('DOMContentLoaded', mostrarCalificaciones);
