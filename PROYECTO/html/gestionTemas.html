@@ -50,11 +50,16 @@
 
                     <label for="descripcion">Descripción:</label>
                     <textarea id="descripcion" required></textarea>
+                    <br>
+                    <br>
 
                     <label for="cursosAsociados">Cursos asociados (codigo):</label>
                     <select id="cursosAsociados" multiple>
                         <!-- Opciones de cursos se cargarán dinámicamente del localStorage cursos, se pueden escoger 1 o mas cursos -->
                     </select>
+
+                    <br>
+                    <br>
 
                     <label for="costo">Costo:</label>
                     <input type="number" id="costo" required>
@@ -62,7 +67,7 @@
                     <label for="precio">Precio:</label>
                     <input type="number" id="precio" required>
 
-                    <button type="button" onclick="agregarTema()">Agregar Tema</button>
+                    <button class="dark-btn" type="button" onclick="agregarTema()">Agregar Tema</button>
                 </form>
             </section>
 
