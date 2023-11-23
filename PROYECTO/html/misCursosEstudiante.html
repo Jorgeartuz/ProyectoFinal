@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Control - Estudiante</title>
+    <title>Mis cursos - EduCecar</title>
     <link rel="stylesheet" href="../estilos/PanelInstructor.css">
     <script src="../Js/temasEstudiante.js"></script>
     <script src="../Js/videosCursos.js"></script>
@@ -21,6 +21,8 @@
                 <ul>
                     <li><a href="../html/PanelEstudiante.html">Inicio</a></li>
                     <li><a href="../html/cursosEstudiante.html">Mis Cursos</a></li>
+                    <li><a href="../html/evaluacionEstudiante.html">Mis evaluaciones</a> </li>
+                    <li><a href="../html/progresoEstudiante.html">Mi progreso e informe</a> </li>
                     <li><a href="../html/calificacionEstudiante.html">Calificaciones</a></li>
                     <li><a href="../html/configuracionEstudiante.html">Configuración</a></li>
                     <li><a href="../html/InicioDeSesion.html">Cerrar Sesión</a></li>
@@ -30,14 +32,18 @@
 
         <div class="content">
             <h2>Mis Temas</h2>
-            <div id="misTemas" class="dark-btn">
+            <div id="misTemas">
                 <!-- Aquí se cargarán los temas  dinámicamente que corresponden al curso seleccionado -->
+                <div class="tema-con-progreso" data-tema="${tema.nombre}">
+                    <p>${tema.nombre}</p>
+                    <progress class="progreso-tema" value="0" max="100"></progress>
+                </div>
             </div>
         </div>
 
         <div class="content">
             <h2>Videos</h2>
-            <div id="misVideos" class="dark-btn" >
+            <div id="misVideos">
                 <!-- Aquí se cargarán los videos con sus link dinámicamente que corresponden al curso seleccionado -->
             </div>
         </div>
