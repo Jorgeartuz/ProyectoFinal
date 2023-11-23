@@ -9,6 +9,26 @@ loginForm.addEventListener('submit', (e) => {
     
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
+    const adminUserExists = users.some(user => user.user_type === 'Admin' && user.isAdminPrincipal);
+
+    if (!adminUserExists) {
+        const adminUser = {
+            id_number: 'admin@example.com', // Correo electrónico del administrador
+            first_name: 'Admin',
+            last_name: 'Principal',
+            email: 'admin@example.com',
+            password: 'admin', // Reemplaza con la contraseña deseada
+            user_type: 'Admin',
+            isAdminPrincipal: true
+            // Agrega otros campos según sea necesario
+        };
+    
+        // Agrega el usuario administrador a la lista de usuarios
+        users.push(adminUser);
+    
+        // Guarda la lista actualizada en el localStorage
+        localStorage.setItem('users', JSON.stringify(users));
+    }
     
     const validUser = users.find((user) => user.email === email && user.password === password);
 
@@ -23,6 +43,7 @@ loginForm.addEventListener('submit', (e) => {
     // Resto de la lógica de inicio de sesión
 switch (validUser.user_type) {
     case 'Admin':
+        validUser.isAdminPrincipal = true;
         window.location.href = 'PanelAdministrador.html';
         break;
     case 'Student':
@@ -33,6 +54,8 @@ switch (validUser.user_type) {
         break;
     default:
         window.location.href = 'index.html';
+
+        
 }
 
 
