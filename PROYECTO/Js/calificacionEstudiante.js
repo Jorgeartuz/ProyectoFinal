@@ -23,7 +23,23 @@ function mostrarCalificacionesDelEstudiante() {
         fila.insertCell(2).textContent = estudiante.calificaciones.nota2 || '';
         fila.insertCell(3).textContent = estudiante.calificaciones.nota3 || '';
         fila.insertCell(4).textContent = estudiante.calificaciones.nota4 || '';
+        
+        actualizarProgreso(estudiante.calificaciones);
+
     } else {
         alert('No se encontraron calificaciones para el estudiante.');
     }
+}
+
+function actualizarProgreso(calificaciones) {
+    const progressElement = document.getElementById('progresoEstudiante');
+
+    // Verifica si todas las notas están calificadas
+    const notasCalificadas = Object.values(calificaciones).filter(nota => nota !== '').length;
+
+    // Calcula el porcentaje de notas calificadas
+    const porcentajeProgreso = (notasCalificadas / 4) * 100;
+
+    // Actualiza el valor del atributo "value" de la etiqueta <progress>
+    progressElement.value = porcentajeProgreso;
 }
